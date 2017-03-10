@@ -1,0 +1,10 @@
+.DS_Store
+target/
+.settings/
+.classpath
+.project
+*.iml
+.idea/
+*.log
+settings.xml
+src/G*
