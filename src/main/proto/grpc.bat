@@ -1,0 +1,1 @@
+protoc --plugin=protoc-gen-grpc-java=D:/software/protoc/protoc-gen-grpc-java.exe --grpc-java_out=. --proto_path=. AccountQry.proto

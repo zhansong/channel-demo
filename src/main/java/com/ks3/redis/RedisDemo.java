@@ -14,8 +14,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * Created by ZHANSONG on 2017/3/2.
- */
+* Created by ZHANSONG on 2017/3/2.
+*/
 @RunWith(BlockJUnit4ClassRunner.class)
 public class RedisDemo {
 
@@ -43,9 +43,9 @@ public class RedisDemo {
         user1.setName("lisi");
         user1.setPostDate(new Date());
 
-        redisLock(user);
+//        redisLock(user);
 //        redisZset(user, user1);
-//        redisList(user, user1);
+        redisList(user, user1);
 //        redisMap(user, user1);
 //        redisSet(user, user1);
         try {
@@ -84,6 +84,13 @@ public class RedisDemo {
         System.out.println("delete length " +  delCount);
         Long userCount = cache.lpush("users", list.toArray(new String[]{}));
         System.out.println(userCount);
+        //如果想把redis的list用作队列，可以使用
+        User user3 = new User();
+        user3.setName("wangwu");
+        User user4 = new User();
+        user4.setName("zhaoliu");
+        cache.lpush("users", JsonUtil.object2json(user3));
+        cache.rpush("users", JsonUtil.object2json(user4));
         List<String> getUsers = cache.lrange("users", 0, -1);
         for(String temp : getUsers) {
             System.out.println(temp);

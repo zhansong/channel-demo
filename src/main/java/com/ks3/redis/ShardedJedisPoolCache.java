@@ -35,7 +35,7 @@ public class ShardedJedisPoolCache {
 	private JedisPoolConfig jedisPoolConfig = null;
 
 	private ShardedJedisPool shardedJedisPool = null;
-	
+
 	public void initJedisPoolConfig(){
 		log.debug("init jedis config:{},{},{},{}",new Object[]{cachePoolMaxActive,cachePoolMaxIdle,cachePoolMaxWait,cachePoolTestOnBorrow} );
 		jedisPoolConfig = new JedisPoolConfig();
@@ -44,7 +44,7 @@ public class ShardedJedisPoolCache {
 		jedisPoolConfig.setMaxWaitMillis(cachePoolMaxWait);
 		jedisPoolConfig.setTestOnBorrow(cachePoolTestOnBorrow);
 	}
-	
+
 	public ShardedJedisPoolCache() {
 		log.debug("cacheServer = "+storeServer);
 		initJedisPoolConfig();
@@ -69,7 +69,7 @@ public class ShardedJedisPoolCache {
 		}
 	}
 
-	
+
 	public ShardedJedis getConn() {
 		ShardedJedis jedis = null;
 		try {
@@ -81,19 +81,19 @@ public class ShardedJedisPoolCache {
 		return jedis;
 	}
 
-	
+
 	public void closeConn(ShardedJedis jedis) {
 		if (jedis != null) {
 			jedis.close();
 		}
 	}
 
-	
+
 	public void destroyPool() {
 		shardedJedisPool.destroy();
 	}
-	
-	
+
+
 	public Boolean exists(String key) {
 		ShardedJedis j = null;
 		try {
@@ -124,7 +124,7 @@ public class ShardedJedisPoolCache {
 		}
 	}
 
-	
+
 	public String setex(String key, int seconds ,String value) {
 		ShardedJedis j = null;
 		try {
@@ -137,8 +137,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long hset(String key, String field, String value) {
 		ShardedJedis j = null;
 		try {
@@ -165,8 +165,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long hdel(String key, String... fields) {
 		ShardedJedis j = null;
 		try {
@@ -179,8 +179,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Boolean hexists(String key, String field) {
 		ShardedJedis j = null;
 		try {
@@ -193,8 +193,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public String get(String key) {
 		ShardedJedis j = null;
 		try {
@@ -208,7 +208,7 @@ public class ShardedJedisPoolCache {
 		return null;
 	}
 
-	
+
 	public Long del(String key) {
 		ShardedJedis j = null;
 		try {
@@ -222,7 +222,7 @@ public class ShardedJedisPoolCache {
 		}
 	}
 
-	
+
 	public Long rpush(String key, String... values) {
 		ShardedJedis j = null;
 		try {
@@ -236,7 +236,7 @@ public class ShardedJedisPoolCache {
 		}
 	}
 
-	
+
 	public List<String> lrange(String key, long start, long end) {
 		ShardedJedis j = null;
 		try {
@@ -250,8 +250,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long llen(String key) {
 		ShardedJedis j = null;
 		try {
@@ -264,8 +264,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public String lpop(String key) {
 		ShardedJedis j = null;
 		try {
@@ -278,8 +278,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long lpush(String key, String... values) {
 		ShardedJedis j = null;
 		try {
@@ -292,7 +292,7 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
+
 	public Long lrem(String key,long count,String value){
 		ShardedJedis j = null;
 		try {
@@ -305,7 +305,7 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
+
 	public String set(String key, String value) {
 		ShardedJedis j = null;
 		try {
@@ -318,8 +318,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long zadd(String key, double score,String member) {
 		ShardedJedis j = null;
 		try {
@@ -332,8 +332,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long zcard(String key) {
 		ShardedJedis j = null;
 		try {
@@ -346,8 +346,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Double zscore(String key,String member) {
 		ShardedJedis j = null;
 		try {
@@ -360,9 +360,9 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
-	
+
+
+
 	public Long zadd(String key, Map<String,Double> scoreMembers) {
 		ShardedJedis j = null;
 		try {
@@ -375,8 +375,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<String> zrange(String key, long start, long end) {
 		ShardedJedis j = null;
 		try {
@@ -389,8 +389,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<Tuple> zrangeWithScores(String key, long start,long end) {
 		ShardedJedis j = null;
 		try {
@@ -403,8 +403,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<String> zrevrangeByScore(String key, double max,double min) {
 		ShardedJedis j = null;
 		try {
@@ -417,8 +417,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<String> zrevrangeByScore(String key, String max,String min,int offset,int count) {
 		ShardedJedis j = null;
 		try {
@@ -431,8 +431,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long incr(String key){
 		ShardedJedis j = null;
 		long count;
@@ -447,7 +447,7 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
+
 	public Long incr(String key,int timeout){
 		ShardedJedis j = null;
 		long count;
@@ -463,7 +463,7 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
+
 	public Long decr(String key){
 		ShardedJedis j = null;
 		long count;
@@ -478,8 +478,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Map<String,String> hgetAll(String key){
 		ShardedJedis j = null;
 		try {
@@ -492,9 +492,9 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
-	
+
+
+
 	public String ltrim(String key, long start, long end) {
 		ShardedJedis j = null;
 		try {
@@ -507,8 +507,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Double zincrby(String key,double score,String member){
 		ShardedJedis j = null;
 		try {
@@ -521,14 +521,14 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<Tuple> zrevrangeWithScores(String key,long start,long end) {
 		ShardedJedis j = null;
 		try {
 			j = getConn();
 			return j.zrevrangeWithScores(key, start, end);
-			
+
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw new RedisErrorException(ErrorCode.Redis_Error);
@@ -536,8 +536,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long zrem(String key,String... members) {
 		ShardedJedis j = null;
 		try {
@@ -550,8 +550,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<String> zrevrange(String key,long start,long end) {
 		ShardedJedis j = null;
 		try {
@@ -564,8 +564,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public String getStoreServer() {
 		return storeServer;
 	}
@@ -573,8 +573,8 @@ public class ShardedJedisPoolCache {
 	public void setStoreServer(String storeServer) {
 		this.storeServer = storeServer;
 	}
-	
-	
+
+
 	public Boolean sismember(String key,String value) {
 		ShardedJedis j = null;
 		try {
@@ -587,8 +587,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long scard(String key) {
 		ShardedJedis j = null;
 		try {
@@ -601,8 +601,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Set<String> smembers(String key) {
 		ShardedJedis j = null;
 		try {
@@ -615,8 +615,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long sadd(String key ,String... value) {
 		ShardedJedis j = null;
 		try {
@@ -629,8 +629,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public ScanResult<String> sscan(String key ,String cursor) {
 		ShardedJedis j = null;
 		try {
@@ -643,8 +643,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long expire(String key,int seconds) {
 		ShardedJedis j = null;
 		try {
@@ -657,8 +657,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long srem(String key,String... members) {
 		ShardedJedis j = null;
 		try {
@@ -671,8 +671,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public String srandmember(String key){
 		ShardedJedis j = null;
 		try {
@@ -685,8 +685,8 @@ public class ShardedJedisPoolCache {
 			closeConn(j);
 		}
 	}
-	
-	
+
+
 	public Long zrank(String key,String member) {
 		ShardedJedis j = null;
 		try {
@@ -755,6 +755,6 @@ public class ShardedJedisPoolCache {
 	public void setShardedJedisPool(ShardedJedisPool shardedJedisPool) {
 		this.shardedJedisPool = shardedJedisPool;
 	}
-	
-	
+
+
 }

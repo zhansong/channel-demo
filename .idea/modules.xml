@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../spring_config_client/config_client.iml" filepath="$PROJECT_DIR$/../spring_config_client/config_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring_config_file/spring_config_client/config_client.iml" filepath="$PROJECT_DIR$/../spring_config_file/spring_config_client/config_client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../spring_config_server/config_server.iml" filepath="$PROJECT_DIR$/../spring_config_server/config_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring_config_file/spring_config_server/config_server.iml" filepath="$PROJECT_DIR$/../spring_config_file/spring_config_server/config_server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../spring_eureka_client/eureka_client.iml" filepath="$PROJECT_DIR$/../spring_eureka_client/eureka_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring_config_file/spring_eureka_client/eureka_client.iml" filepath="$PROJECT_DIR$/../spring_config_file/spring_eureka_client/eureka_client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../spring_eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/../spring_eureka_server/eureka_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring_config_file/spring_eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/../spring_config_file/spring_eureka_server/eureka_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/ks3.iml" filepath="$PROJECT_DIR$/ks3.iml" />
       <module fileurl="file://$PROJECT_DIR$/../spring_config_client/ks3.spring.iml" filepath="$PROJECT_DIR$/../spring_config_client/ks3.spring.iml" />
